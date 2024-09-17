@@ -188,7 +188,7 @@ const LandPage = () => {
         {/* Purpose Section */}
         <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 gap-x-16">
+            <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 gap-x-16">
               <div>
                 <h2 className="text-3xl font-normal text-white sm:text-4xl lg:text-5xl xl:text-6xl">
                   Purpose
@@ -206,45 +206,70 @@ const LandPage = () => {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Features Section testing */}
         <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 gap-x-16">
-                <div>
-                    <p className="text-lg font-normal text-gray-400">
-                        <ul>
-                            <li className='mb-3'>🔍 Advanced Case Search</li>
-                            <li className='mb-3'>📊 Insightful Case Comparisons</li>
-                            <li className='mb-3'>💡 Smart Case Recommendations</li>
-                            <li className='mb-3'>📈 Data-Driven Insights</li>
-                            <li className='mb-3'>🌟 User-Friendly Interface</li>
-                            <li className='mb-3'>🚀 Continuous Innovation</li>
-                        </ul>
-                    </p>
-                </div>
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
+              
+              {/* Heading and Subheading */}
+              <div className="order-1 md:order-2">
                 <h2 className="text-3xl font-normal text-white sm:text-4xl lg:text-5xl xl:text-6xl">
                   Features
                 </h2>
-                <h4 className=" mt-3 font-normal text-white sm:text-lg lg:text-xl xl:text-xl">
-                Unlock the Future of Patient Care with Cutting-Edge Features
+                <h4 className="mt-3 font-normal text-white sm:text-lg lg:text-xl xl:text-xl">
+                  Unlock the Future of Patient Care with Cutting-Edge Features
                 </h4>
               </div>
-              
-            </div>
 
+              {/* Features List */}
+              <div className="order-2 md:order-1">
+                <p className="text-lg font-normal text-gray-400">
+                  <ul>
+                    <li className="mb-3">🔍 Advanced Case Search</li>
+                    <li className="mb-3">📊 Insightful Case Comparisons</li>
+                    <li className="mb-3">💡 Smart Case Recommendations</li>
+                    <li className="mb-3">📈 Data-Driven Insights</li>
+                    <li className="mb-3">🌟 User-Friendly Interface</li>
+                    <li className="mb-3">🚀 Continuous Innovation</li>
+                  </ul>
+                </p>
+              </div>
+
+            </div>
           </div>
         </section>
 
+
+          {/* Testimonals Section */}
+        <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="text-center">
+              <div>
+                <h2 className="text-3xl font-normal text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+                  Testimonals
+                </h2>
+                <h4 className="text-xl mt-1 font-normal text-white sm:text-lg lg:text-xl xl:text-xl">
+                  What Our Users Are Saying
+                </h4>
+              </div>
+              <div>
+                <p className="mt-4 text-lg mx-auto font-normal text-gray-400 w-3/4">
+                "MediMatch has been a game-changer for our team. We are now able to find similar patient cases quickly and easily, which has improved our treatment plans and patient outcomes." - Dr. Smith
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* About Section */}
         <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 gap-x-16">
+            <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 gap-x-16">
               <div>
                 <h2 className="text-3xl font-normal text-white sm:text-4xl lg:text-5xl xl:text-6xl">
                   About Us
                 </h2>
-                <h4 className="text-3xl mt-3 font-normal text-white sm:text-lg lg:text-xl xl:text-xl">
+                <h4 className=" mt-3 font-normal text-white sm:text-lg lg:text-xl xl:text-xl">
                 Advanced Machine Learning for Patient Case Matching
                 </h4>
               </div>
@@ -256,6 +281,10 @@ const LandPage = () => {
             </div>
           </div>
         </section>
+
+        
+       
+
     </div>
   );
 };
