@@ -10,14 +10,14 @@ const LandPage = () => {
       <header className="py-4 bg-black sm:py-6">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="shrink-0">
+            {/* App Name */}
+            <div className="">
               <a href="#" className="flex">
                 <span className='text-white text-xl'>MediMatch</span>
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu(Hamburger) Button */}
             <div className="flex md:hidden">
               <button
                 type="button"
@@ -65,16 +65,16 @@ const LandPage = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex md:items-center space-x-10 lg:ml-20 lg:space-x-12">
-              <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+              <a href="#purpose" className="text-base font-normal text-gray-400 transition hover:text-white">
                 Purpose
               </a>
-              <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+              <a href="#feature" className="text-base font-normal text-gray-400 transition hover:text-white">
                 Features
               </a>
-              <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+              <a href="#testi" className="text-base font-normal text-gray-400 transition hover:text-white">
                 Testimonals
               </a>
-              <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+              <a href="#aboutus" className="text-base font-normal text-gray-400 transition hover:text-white">
                 About Us
               </a>
             </nav>
@@ -96,16 +96,16 @@ const LandPage = () => {
           {expanded && (
             <nav className="mt-4">
               <div className="flex flex-col pt-8 pb-4 space-y-6">
-                <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+                <a href="#purpose" className="text-base font-normal text-gray-400 transition hover:text-white">
                 Purpose
                 </a>
-                <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+                <a href="#feature" className="text-base font-normal text-gray-400 transition hover:text-white">
                   Features
                 </a>
-                <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+                <a href="#testi" className="text-base font-normal text-gray-400 transition hover:text-white">
                 Testimonals
                 </a>
-                <a href="#" className="text-base font-normal text-gray-400 transition hover:text-white">
+                <a href="#aboutus" className="text-base font-normal text-gray-400 transition hover:text-white">
                 
                 About Us
                 </a>
@@ -186,7 +186,7 @@ const LandPage = () => {
       </section>
 
         {/* Purpose Section */}
-        <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
+        <section id='purpose' className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 gap-x-16">
               <div>
@@ -207,7 +207,7 @@ const LandPage = () => {
         </section>
 
         {/* Features Section testing */}
-        <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
+        <section id='feature' className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
               
@@ -241,7 +241,7 @@ const LandPage = () => {
 
 
           {/* Testimonals Section */}
-        <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
+        <section id='testi' className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="text-center">
               <div>
@@ -262,7 +262,7 @@ const LandPage = () => {
         </section>
         
         {/* About Section */}
-        <section className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
+        <section id='aboutus' className="py-12 bg-black sm:py-16 lg:py-20 xl:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 gap-x-16">
               <div>
