@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
 import coverimg from '../assets/coverimg.jpeg';
+import Modal from './Modal';
+import UserAuth from './UserAuth';
 
 const LandPage = () => {
   const [expanded, setExpanded] = useState(false);
+
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
+
+  const handleSignIn = () => {
+    // alert('Sign In button clicked!');
+    setIsAuthOpen(true);
+  }
+  const closeAuth = () => {
+    setIsAuthOpen(false);
+  };
 
   return (
     <div className="">
@@ -86,6 +99,7 @@ const LandPage = () => {
                 href="#"
                 className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
                 role="button"
+                onClick={handleSignIn}
               >
                 Sign In
               </a>
@@ -115,6 +129,7 @@ const LandPage = () => {
                     href="#"
                     className="relative inline-flex items-center justify-center w-full px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
                     role="button"
+                    onClick={handleSignIn}
                   >
                     Sign In
                   </a>
@@ -283,8 +298,11 @@ const LandPage = () => {
         </section>
 
         
-       
-
+        {isAuthOpen && (
+          <Modal onClose={closeAuth}>
+              <UserAuth/>
+          </Modal>
+        )}
     </div>
   );
 };
