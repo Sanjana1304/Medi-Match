@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../api/axiosConfig';
 
 import '../HomePage.css';
 import SearchBar from '../components/homeBox/SearchBar';
 
 const HomePage = () => {
     const [expanded, setExpanded] = useState(false);
+    const navig = useNavigate();
+
+    const handleSignOut = async() => {
+        try {
+            await api.post('/api/auth/logout');
+            navig('/');
+        } catch (error) {
+            console.error('Error logging out:', error);
+        }finally{
+          alert("Logged Out Successfully");
+        }
+    }
+
     return (
         <div className="homepage-container text-white">
         <div className="stars">
@@ -17,7 +32,7 @@ const HomePage = () => {
             {/* Header Section */}
             <header className="py-4 sm:py-6">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between text-sm">
                     {/* App Name */}
                     <div className="">
                     <a href="#" className="flex">
@@ -90,16 +105,31 @@ const HomePage = () => {
 
                     {/* CTA Button */}
                     <div className="relative hidden md:inline-flex">
-                    <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
-                    <a
-                        href="#"
-                        className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
-                        role="button"
-                    >
-                        My Profile
-                    </a>
+                        <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                        <a
+                            className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                            role="button"
+                        >
+                            My Profile
+                        </a>
                     </div>
+
+                    <div className="relative hidden md:inline-flex">
+                        <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                        <a
+                            className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                            role="button"
+                            onClick={handleSignOut}
+                        >
+                            Sign Out
+                        </a>
+                    </div>
+
+
                 </div>
+
+
+                    
 
                 {/* Mobile Menu */}
                 {expanded && (
@@ -119,14 +149,24 @@ const HomePage = () => {
                             Bookmarked Cases
                             </a>
                             <div className="relative inline-flex items-center justify-center group">
-                            <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
-                            <a
-                                href="#"
-                                className="relative inline-flex items-center justify-center w-full px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
-                                role="button"
-                            >
-                                My Profile
-                            </a>
+                                <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                                <a
+                                    className="relative inline-flex items-center justify-center w-full px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                                    role="button"
+                                >
+                                    My Profile
+                                </a>
+                            </div>
+
+                            <div className="relative inline-flex items-center justify-center group">
+                                <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                                <a
+                                    className="relative inline-flex items-center justify-center w-full px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                                    role="button"
+                                    onClick={handleSignOut}
+                                >
+                                    Sign Out
+                                </a>
                             </div>
                         </div>
                     </nav>

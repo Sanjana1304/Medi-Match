@@ -11,6 +11,7 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from './accountContext';
 import { useNavigate } from "react-router-dom";
+import api from "../../api/axiosConfig";
 
 
 export function LoginForm() {
@@ -22,13 +23,35 @@ export function LoginForm() {
 
   const navig = useNavigate();
 
-  const signIntoMyAccount = (e) => {
+  const signIntoMyAccount = async(e) => {
     e.preventDefault();
-    console.log("Email: ",loginMail);
-    console.log("Password",loginPassword);
-
-    navig("/home");
-  }
+    try {
+      const authbody = {
+        email:loginMail,
+        password:loginPassword
+      }
+      const response = await api.post(`/api/auth/login`,authbody,{
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+      if (response.status === 200) {
+        
+        const { token, user } = response.data;
+        document.cookie = `token=${token}; path=/; HttpOnly`;
+        navig("/home");
+        
+      }
+    } 
+    catch (error) {
+      if (error.response && error.response.data) {
+        console.log(error.response.data.message); // Set error message from backend
+      }
+      else {
+      console.log('An unexpected error occurred'); // Fallback error message
+      }
+    }
+  };
 
   return (
     <BoxContainer>

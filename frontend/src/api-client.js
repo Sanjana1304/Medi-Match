@@ -8,12 +8,23 @@ export const register = async (email,name, password) => {
         },
         withCredentials: true,
     });
-
-    
     return "success";
-    
-    
   } catch (error) {
     return error.message;
+  }
+}
+
+export const validateToken = async () => {
+  try {
+    const res = await api.get('/api/auth/validate-token',{
+        headers:{
+            'Content-Type':'application/json',
+        },
+        withCredentials: true,
+    });
+    return res.json();
+  } 
+  catch (error) {
+    return null;
   }
 }

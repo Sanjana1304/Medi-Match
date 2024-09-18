@@ -2,6 +2,7 @@ const express = require("express");
 const userSchemaModel = require("../schema/userSchemaCode");
 bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const verifyToken = require("../middleware/authMdl");
 
 const authRouter = express.Router();
 
@@ -46,16 +47,18 @@ authRouter.post('/login',async(req,res)=>{
     }
 })
 
-// authRouter.post('/logout', (req, res) => {
-//     res.clearCookie('auth_token', {
-//         httpOnly: true,
-//         secure: process.env.NODE_ENV === 'production',
-//         sameSite: 'strict',
-//     });
-//     res.status(200).json({ message: 'Logged out successfully' });
-// });
+authRouter.get("validate-token",verifyToken,(req,res)=>{
+    res.status(200).json({userId:req.userId});
+})
 
-// module.exports = authRouter;
+authRouter.post('/logout', (req, res) => {
+    res.clearCookie('auth_token', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+    });
+    res.status(200).json({ message: 'Logged out successfully' });
+});
 
 
 
