@@ -12,7 +12,6 @@ const PrivateRoute = () => {
             try {
                 const response = await validateToken(); // Use validateToken to check authentication
                 if (response && response.userId) {
-                    console.log("User is authenticated");
                     setIsAuthenticated(true);
                 } else {
                     setIsAuthenticated(false);

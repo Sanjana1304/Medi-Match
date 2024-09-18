@@ -39,7 +39,6 @@ export function LoginForm() {
       if (response.status === 200) {
         const { token, user } = response.data;
         document.cookie = `auth_token=${token}; path=/`;
-        console.log(token);
         navig("/home");
         
       }

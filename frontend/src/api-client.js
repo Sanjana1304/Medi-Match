@@ -22,7 +22,6 @@ export const validateToken = async () => {
         },
         withCredentials: true,
     });
-    console.log("Token validation response", res.data);
     return res.data;
   } 
   catch (error) {
