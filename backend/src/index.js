@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 //const bodyParser = require("body-parser");
+const userRouter = require("./routes/userRoute");
 
 // Create an Express app
 const app = express();
@@ -21,6 +22,8 @@ app.use(
 )
 
 
+
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
@@ -34,6 +37,8 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
   res.send('Hello, Sanj from the backend !!!');
 });
+
+app.use("/api/users",userRouter);
 
 const port = 3000;
 app.listen(port, () => {
