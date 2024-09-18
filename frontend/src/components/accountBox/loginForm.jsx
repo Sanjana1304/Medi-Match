@@ -60,7 +60,7 @@ export function LoginForm() {
       <Marginer direction="vertical" />
       <LineText>
         Don't have an account?{" "}
-        <BoldLink onClick={switchToSignup} href="#">
+        <BoldLink onClick={switchToSignup}>
           Signup
         </BoldLink>
       </LineText>

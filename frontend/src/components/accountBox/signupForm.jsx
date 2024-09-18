@@ -10,6 +10,7 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from './accountContext';
+import { register } from "../../api-client";
 
 export function SignupForm() {
 
@@ -21,12 +22,29 @@ export function SignupForm() {
   const [signUpConfirmPassword,setSignUpConfirmPassword] = useState("");
 
 
-  const signUpMyAccount = (e) => {
+  const signUpMyAccount = async(e) => {
     e.preventDefault();
-    console.log("Full Name: ",signUpFullName);
-    console.log("Email: ",signUpMail);
-    console.log("Password:",signUpPassword);
-    console.log("Confirm Password:",signUpConfirmPassword);
+    if (signUpPassword !== signUpConfirmPassword) {
+      alert("Passwords do not match");
+    }
+    else{
+      try {
+        let res = await register(signUpMail, signUpFullName, signUpPassword);
+        
+        if(res === "success"){
+          alert("Woohoo! Account created successfully. Use your email and password to login.");
+          setSignUpFullName("");
+          setSignUpMail("");
+          setSignUpPassword("");
+          setSignUpConfirmPassword("");
+        }
+        else{
+          alert("Error creating account");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
   return (
     <BoxContainer>
