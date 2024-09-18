@@ -5,6 +5,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 //const bodyParser = require("body-parser");
 const userRouter = require("./routes/userRoute");
+const authRouter = require("./routes/authRoute");
 
 // Create an Express app
 const app = express();
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
   res.send('Hello, Sanj from the backend !!!');
 });
 
+app.use("/api/auth",authRouter);
 app.use("/api/users",userRouter);
 
 const port = 3000;
