@@ -33,16 +33,17 @@ export function LoginForm() {
       const response = await api.post(`/api/auth/login`,authbody,{
         headers:{
           'Content-Type':'application/json'
-        }
+        },
+        withCredentials: true
       });
       if (response.status === 200) {
-        
         const { token, user } = response.data;
-        document.cookie = `token=${token}; path=/; HttpOnly`;
+        document.cookie = `auth_token=${token}; path=/`;
+        console.log(token);
         navig("/home");
         
       }
-    } 
+    }
     catch (error) {
       if (error.response && error.response.data) {
         console.log(error.response.data.message); // Set error message from backend

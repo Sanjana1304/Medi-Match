@@ -47,7 +47,7 @@ authRouter.post('/login',async(req,res)=>{
     }
 })
 
-authRouter.get("validate-token",verifyToken,(req,res)=>{
+authRouter.get("/validate-token",verifyToken,(req,res)=>{
     res.status(200).json({userId:req.userId});
 })
 
