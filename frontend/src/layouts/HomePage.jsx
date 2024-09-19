@@ -4,6 +4,7 @@ import api from '../api/axiosConfig';
 
 import '../HomePage.css';
 import SearchBar from '../components/homeBox/SearchBar';
+import CardScroller from '../components/homeBox/CardScroller';
 
 const HomePage = () => {
     const [expanded, setExpanded] = useState(false);
@@ -22,11 +23,6 @@ const HomePage = () => {
 
     return (
         <div className="homepage-container text-white">
-        <div className="stars">
-            {Array.from({ length: 50 }).map((_, i) => (
-            <div key={i} className="star"></div>
-            ))}
-        </div>
         
         <div className="content border">
             {/* Header Section */}
@@ -173,6 +169,32 @@ const HomePage = () => {
             <div className='p-10'>
             <SearchBar/>
             </div>
+
+            <div>
+                <h1 className='px-10 text-3xl font-bold'>Recent Cases</h1>
+                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
+            </div>
+
+            <div>
+                <h1 className='px-10 text-3xl font-bold'>Quick Links</h1>
+                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
+            </div>
+
+            <div>
+                <h1 className='px-10 text-3xl font-bold'>Recommendations</h1>
+                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
+            </div>
+
+            <div>
+                <h1 className='px-10 text-3xl font-bold'>Research Feed</h1>
+                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} /> 
+            </div>
+
+            <div>
+                <h1 className='px-10 text-3xl font-bold'>Bookmarked Cases</h1>
+                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
+            </div>    
+        
             
             
         </div>
