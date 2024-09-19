@@ -104,14 +104,19 @@ const HomePage = () => {
                     </nav>
 
                     {/* CTA Button */}
-                    <div className="relative hidden md:inline-flex">
+                    <div className="dropdown relative hidden md:inline-flex">
                         <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
                         <a
-                            className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                            className="dropbtn relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
                             role="button"
                         >
                             My Profile
                         </a>
+                        <div className="dropdown-content">
+                            <p className='text-lg'>Sanjana S Acharya</p>
+                            <p>sensanjana072@gmail.com</p>
+                        </div>
+
                     </div>
 
                     <div className="relative hidden md:inline-flex">
@@ -148,15 +153,6 @@ const HomePage = () => {
                             
                             Bookmarked Cases
                             </a>
-                            <div className="relative inline-flex items-center justify-center group">
-                                <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
-                                <a
-                                    className="relative inline-flex items-center justify-center w-full px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
-                                    role="button"
-                                >
-                                    My Profile
-                                </a>
-                            </div>
 
                             <div className="relative inline-flex items-center justify-center group">
                                 <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"></div>
@@ -174,7 +170,7 @@ const HomePage = () => {
                 </div>
             </header>
             
-            <div className='p-10 border'>
+            <div className='p-10'>
             <SearchBar/>
             </div>
             
