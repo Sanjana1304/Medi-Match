@@ -66,3 +66,17 @@ body {
   z-index: 9999999;
   box-shadow: 0px 1px 7px rgb(92, 92, 234);
 }
+.text-red{
+  color: red;
+}
+
+.rounded-custom{
+  border-radius: 15px;
+}
+.text-gray{
+  color: gray;
+}
+.bg-red{
+  background-color: rgb(165, 32, 32);
+  width: max-content;
+}

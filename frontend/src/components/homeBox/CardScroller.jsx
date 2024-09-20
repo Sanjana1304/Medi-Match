@@ -4,7 +4,7 @@ import '../../../src/HomePage.css';
 
 const CardScroller = ({ cards }) => {
   return (
-    <div className="overflow-x-scroll p-4" style={{ whiteSpace: 'nowrap' }}>
+    <div className=" overflow-x-scroll p-4" style={{ whiteSpace: 'nowrap' }}>
       {cards?.map((card, index) => (
         <div
           key={index}

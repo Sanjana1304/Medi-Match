@@ -6,6 +6,7 @@ import '../HomePage.css';
 import SearchBar from '../components/homeBox/SearchBar';
 import CardScroller from '../components/homeBox/CardScroller';
 import NewsFeed from '../components/homeBox/NewsFeed';
+import ResearchFeed from '../components/homeBox/ResearchFeed';
 
 const HomePage = () => {
     const [expanded, setExpanded] = useState(false);
@@ -187,18 +188,14 @@ const HomePage = () => {
             </div>
 
             <div>
-                <h1 className='px-10 text-3xl font-bold'>Research Feed</h1>
-                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} /> 
+                <h1 className='px-10 text-3xl font-bold mb-5'>Research Feed</h1>
+                <NewsFeed/>
             </div>
 
             <div>
                 <h1 className='px-10 text-3xl font-bold'>Bookmarked Cases</h1>
                 <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
             </div>
-
-            <div>
-                <NewsFeed/>
-            </div> 
         
             
             

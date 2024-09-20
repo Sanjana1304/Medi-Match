@@ -1,6 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const userSchemaModel = require("../schema/userSchemaCode");
+const verifyToken = require("../middleware/authMdl");
 
 const userRouter = express.Router();
 
@@ -35,20 +36,20 @@ userRouter.post('/register',async(req,res)=>{
     }
 })
 
-// userRouter.get('/getMe',verifyToken,async(req,res)=>{
-//     try {
-//         const useridd = req.userIdd;
-//         const record = await userSchemaModel.findById(useridd).select("-password");
+userRouter.get('/getMe',verifyToken,async(req,res)=>{
+    try {
+        const userid = req.userId;
+        const record = await userSchemaModel.findById(userid).select("-password");
 
-//         if (!record) {
-//             return res.status(404).send({ message: 'User not found' });
-//         }
+        if (!record) {
+            return res.status(404).send({ message: 'User not found' });
+        }
 
-//         res.status(200).json(record);
-//     } catch (error) {
-//         res.status(500).send(error);
-//     }
-// })
+        res.status(200).json(record);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
 
 // userRouter.put('/editMe',verifyToken,async(req,res)=>{
 //     try {
