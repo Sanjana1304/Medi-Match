@@ -29,3 +29,17 @@ export const validateToken = async () => {
     return null;
   }
 }
+
+
+export const fetchUserData = async () => {
+  try {
+      const response = await api.get(`/api/users/getMe`,{
+        withCredentials:"include"
+      });
+      if (response.status === 200) {
+        return response.data;
+      }
+  } catch (error) {
+      console.error('Error fetching user data:', error);
+  }
+};

@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axiosConfig';
-
+import { useQuery } from 'react-query'
+import { fetchUserData } from '../api-client';
 import '../HomePage.css';
 import SearchBar from '../components/homeBox/SearchBar';
 import CardScroller from '../components/homeBox/CardScroller';
 import NewsFeed from '../components/homeBox/NewsFeed';
-import ResearchFeed from '../components/homeBox/ResearchFeed';
+import QuickLinks from '../components/homeBox/QuickLinks';
 
 const HomePage = () => {
     const [expanded, setExpanded] = useState(false);
     const navig = useNavigate();
+
+    const {data : userdata} = useQuery('fetchUserData',fetchUserData);
+    console.log(userdata);
 
     const handleSignOut = async() => {
         try {
@@ -111,8 +115,8 @@ const HomePage = () => {
                             My Profile
                         </a>
                         <div className="dropdown-content">
-                            <p className='text-lg'>Sanjana S Acharya</p>
-                            <p>sensanjana072@gmail.com</p>
+                            <p className='text-lg'>{userdata?.name}</p>
+                            <p>{userdata?.email}</p>
                         </div>
 
                     </div>
@@ -179,7 +183,7 @@ const HomePage = () => {
 
             <div>
                 <h1 className='px-10 text-3xl font-bold'>Quick Links</h1>
-                <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
+                <QuickLinks/>
             </div>
 
             <div>
@@ -193,7 +197,7 @@ const HomePage = () => {
             </div>
 
             <div>
-                <h1 className='px-10 text-3xl font-bold'>Bookmarked Cases</h1>
+                <h1 className='mt-5 px-10 text-3xl font-bold'>Bookmarked Cases</h1>
                 <CardScroller cards={[1,2,3,4,5,6,7,8,9,10]} />
             </div>
         
